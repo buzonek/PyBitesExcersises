@@ -36,4 +36,4 @@ def get_harry_most_common_word():
             # get rid of non-alpha characters by replacing them using regexp
             alpha_words = [pattern.sub('', word) for word in words]
             words_counter.update([word for word in alpha_words if word not in stopwords and word])
-    return words_counter.most_common(1)
+    return words_counter.most_common(1)[0]
