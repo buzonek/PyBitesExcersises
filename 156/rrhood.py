@@ -46,7 +46,6 @@ Little Red Riding Hood and her Grandmother had a nice lunch and a long chat.
 """
 
 
-
 def make_character_index(text=text, characters=CHARACTERS):
     """Return a dict with keys are characters (lowercased) and values
        the lines they appear in sorted order.
@@ -59,16 +58,11 @@ def make_character_index(text=text, characters=CHARACTERS):
 
     for line_number, line in enumerate(text.lower().splitlines()):
         for character in characters:
-            if isinstance(character, tuple):
-                for character_ in character:
-                    character_ = character_.lower()
-                    if character_ in line:
-                        index[character[0].lower()].append(line_number)
-            else:
-                character = character.lower()
-                if character in line:
-                    index[character].append(line_number)
+            names = [character] if isinstance(character, str) else character
+            for character in names:
+                if character.lower() in line:
+                    index[names[0].lower()].append(line_number)
 
     for key, values in index.items():
-        index[key] = sorted(list(set(values)))
+        index[key] = sorted(set(values))
     return index
