@@ -1,5 +1,6 @@
 from collections import defaultdict
 import os
+import re
 from urllib.request import urlretrieve
 
 from bs4 import BeautifulSoup
@@ -26,9 +27,10 @@ def get_us_bank_holidays(content=content):
        keys -> months and values -> list of bank holidays"""
     soup = BeautifulSoup(content, 'html.parser')
     table = soup.find('table', class_='list-table')
-    for row in table.find_all('tr', class_='holiday'):
+    for row in table.find_all('tr')[1:]:
         title = row.find('a').get_text()
         month = row.find('time').get_text()[5:7]
         holidays[month].append(title)
     return holidays
+
 
