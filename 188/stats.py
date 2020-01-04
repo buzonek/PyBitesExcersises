@@ -31,7 +31,8 @@ def get_all_line_counts(data: str = STATS) -> list:
     """Get all 186 line counts from the STATS file,
        returning a list of ints"""
     with open(data) as f:
-        return (int(line.strip().split()[0]) for line in f)
+        for line in f:
+            yield int(line.strip().split()[0])
 
 
 def create_stats_report(data=None):
@@ -44,13 +45,13 @@ def create_stats_report(data=None):
 
     # TODO 2: complete this dict, use data list and
     # for the last 3 sample_ variables, use sample list
-    stats = dict(count=data.count(),
+    stats = dict(count=len(data),
                  min_=min(data),
                  max_=max(data),
                  mean=statistics.mean(data),
                  pstdev=statistics.pstdev(data),
                  pvariance=statistics.pvariance(data),
-                 sample_count=sample.count(),
+                 sample_count=len(sample),
                  sample_stdev=statistics.stdev(sample),
                  sample_variance=statistics.variance(sample),
                  )
