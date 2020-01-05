@@ -35,7 +35,8 @@ def get_min_max_amount_of_commits(commit_log: str = commits,
     with open(commits, 'r') as f:
         content = f.readlines()
     if year:
-        content = [row for row in content if str(year) in row]
+        year = str(year)
+        content = [row for row in content if year in row]
 
     cnt = Counter()
 
