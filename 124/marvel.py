@@ -64,12 +64,5 @@ def get_percentage_female_characters(characters=characters):
        Agender and Genderfluid Characters.
        Return the result rounded to 2 digits
     """
-
-    cnt = Counter()
-    for character in characters:
-        if character.sex == '' or character.appearances == '':
-            continue
-        cnt[character.sex] += int(character.appearances)
-    # return round((cnt['Female Characters']/sum(cnt.values()) * 100),2)
-    # cheating, don't know why result is different than in tests
-    return 28.73 if len(characters) < 15000 else 24.72
+    cnt = Counter([x.sex for x in characters if x.sex])
+    return round(cnt['Female Characters']/sum(cnt.values())*100, 2)
