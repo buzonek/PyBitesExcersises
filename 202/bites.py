@@ -25,7 +25,7 @@ def get_most_complex_bites(N=10, stats=stats):
         reader = csv.DictReader(csv_file, delimiter=';')
         sorted_bites = sorted([row for row in reader if row['Difficulty'] != 'None'],
                               key=lambda x: float(x['Difficulty']), reverse=True)
-        return [_get_bite_no(bite) for bite in sorted_bites[:10]]
+        return [_get_bite_no(bite) for bite in sorted_bites[:N]]
 
 
 if __name__ == '__main__':
