@@ -20,4 +20,4 @@ id,first_name,last_name,email
 def convert_to_json(members=members):
     members = re.sub(r'[;|]', ',', members)
     csv_dict = csv.DictReader(members.splitlines()[1:])
-    return [json.dumps(x) for x in csv_dict]
+    return json.dumps(list(csv_dict))
