@@ -51,6 +51,17 @@ def _maybe_DateFormats(date_str):
         maybe_formats.append(DateFormat.NONPARSABLE)
     return maybe_formats
 
+dates = [
+        "11/11/07",
+        "01/05/07",
+        "05/12/04",
+        "06/11/01",
+        "10/03/09",
+        "10/08/09",
+        "04/11/11",
+        "02/05/10",
+        "05/10/08",
+    ]
 
 def get_dates(dates):
     """ Args:
@@ -66,11 +77,11 @@ def get_dates(dates):
     for date in dates:
         date_formats.update(_maybe_DateFormats(date))
     most_commons = date_formats.most_common(2)
+    # most common formatter
     mst_cmm_fmt = most_commons[0][0]
-    if most_commons[0][1] == most_commons[1][1] or mst_cmm_fmt[0][0] == DateFormat.NONPARSABLE:
+    if most_commons[0][1] == most_commons[1][1] or mst_cmm_fmt == DateFormat.NONPARSABLE:
         raise InfDateFmtError
-    date_fmt = DateFormat.get_d_parse_formats(mst_cmm_fmt)
-
+    date_fmt = DateFormat.get_d_parse_formats(mst_cmm_fmt.value)
     final_dates = []
     for date in dates:
         try:
@@ -78,3 +89,4 @@ def get_dates(dates):
             final_dates.append(dt.strftime('%Y-%m-%d'))
         except ValueError:
             final_dates.append('Invalid')
+    return final_dates
