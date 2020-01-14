@@ -16,7 +16,7 @@ salt = ''.join(
 )
 DB = TMP / f'nba_{salt}.db'
 
-Player = namedtuple('Player', ('name year first_year team college active '
+Player = namedtuple('Player', ('name year first_year pyteam college active '
                                'games avg_min avg_points'))
 
 conn = sqlite3.connect(DB)

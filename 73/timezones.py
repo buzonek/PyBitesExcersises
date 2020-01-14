@@ -10,7 +10,7 @@ def within_schedule(utc, *timezones):
     utc_ = pytz.utc
     utc_dt = utc_.localize(utc)
     for timezone in timezones:
-        try:    
+        try:
             tz = pytz.timezone(timezone)
         except Exception:
             raise ValueError

@@ -26,7 +26,7 @@ def get_min_max_amount_of_commits(commit_log: str = commits,
 
     def _extract_date(line):
         date_str = re.search(r'(?<=Date:).*?(?=[+-])', line)[0]
-        return parse(date_str).strftime('%y-%m')
+        return parse(date_str).strftime('%Y-%m')
 
     def _extract_changes(line):
         changes = re.findall(r'\d+(?= deletion| insertion)', line)

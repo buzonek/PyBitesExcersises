@@ -44,3 +44,4 @@ def test_get_percentage_female_characters_smaller_data_set():
     expected = 28.73
     assert actual == expected
 
+test_get_percentage_female_characters_smaller_data_set()
