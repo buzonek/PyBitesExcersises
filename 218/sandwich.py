@@ -13,6 +13,6 @@ def sandwich(func):
     @wraps(func)
     def wrapped(*args, **kwargs):
         print(UPPER_SLICE)
-        sandwich(*args, **kwargs)
+        func(*args, **kwargs)
         print(LOWER_SLICE)
-        return wrapped
+    return wrapped
