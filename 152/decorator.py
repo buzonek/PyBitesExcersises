@@ -1,5 +1,5 @@
 from functools import wraps
-
+import re
 
 DEFAULT_TEXT = ('Subscribe to our blog (sidebar) to periodically get '
                 'new PyBites Code Challenges (PCCs) in your inbox')
@@ -18,7 +18,11 @@ def strip_range(start, end):
         def gen_output(text):
             return text
     """
-    print('test')
-    print("Asd")
-    print('asdasd')
-    pass
+    def decorator(func):
+        @wraps(func)
+        def wrapper(text):
+            ret_text = ''.join([x if i not in range(start, end) else '.' for i, x in enumerate(text)])
+            result = func(ret_text)
+            return result
+        return wrapper
+    return decorator
