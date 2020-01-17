@@ -16,7 +16,6 @@ def _(data):
         data = data[:-1]
 
 
-@count_down.register(set)
 @count_down.register(list)
 def _(data):
     while data:
@@ -30,7 +29,8 @@ def _(data):
     count_down(keys)
 
 
+@count_down.register(range)
 @count_down.register(tuple)
+@count_down.register(set)
 def _(data):
     count_down(list(data))
-

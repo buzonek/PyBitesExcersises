@@ -9,9 +9,10 @@ def get_len_help_text(builtin: BuiltinFunctionType) -> int:
        If the the object passed in is not a builtin, raise a ValueError.
     """
     f = StringIO()
-    with redirect_stdout(f):
+    with redirect_stdout(f) as x:
         if not isinstance(builtin, BuiltinFunctionType):
             raise ValueError
         else:
             help(builtin)
     return len(f.getvalue())
+

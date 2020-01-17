@@ -9,4 +9,4 @@ def int_args(func):
         if any(x < 0 for x in args):
             raise ValueError
         return func(*args, **kwargs)
-    return wrapper
+    return wrapper()
