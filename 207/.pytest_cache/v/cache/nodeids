@@ -1,0 +1,5 @@
+[
+  "test_cached_property.py::test_property_is_cached_timing",
+  "test_cached_property.py::test_property_is_cached_value",
+  "test_cached_property.py::test_property_is_immutable"
+]
