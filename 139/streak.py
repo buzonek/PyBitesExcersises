@@ -29,9 +29,9 @@ def calculate_streak(dates):
     if TODAY == sorted_dates[0]:
         streak += 1
     for i, date_ in enumerate(sorted_dates[streak:]):
-        if date_ == TODAY - relativedelta(days=i+1):
+        if date_ == TODAY - timedelta(days=i+1):
             streak += 1
         else:
-            return streak
-
+            break
+    return streak
 
