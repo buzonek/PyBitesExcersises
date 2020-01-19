@@ -1,0 +1,19 @@
+[
+  "test_belt.py::test_get_belt[0-None]",
+  "test_belt.py::test_get_belt[9-None]",
+  "test_belt.py::test_get_belt[10-white]",
+  "test_belt.py::test_get_belt[48-white]",
+  "test_belt.py::test_get_belt[50-yellow]",
+  "test_belt.py::test_get_belt[101-orange]",
+  "test_belt.py::test_get_belt[249-green]",
+  "test_belt.py::test_get_belt[250-blue]",
+  "test_belt.py::test_get_belt[251-blue]",
+  "test_belt.py::test_get_belt[400-brown]",
+  "test_belt.py::test_get_belt[599-brown]",
+  "test_belt.py::test_get_belt[600-black]",
+  "test_belt.py::test_get_belt[788-black]",
+  "test_belt.py::test_get_belt[800-paneled]",
+  "test_belt.py::test_get_belt[999-paneled]",
+  "test_belt.py::test_get_belt[1000-red]",
+  "test_belt.py::test_get_belt[1200-red]"
+]
