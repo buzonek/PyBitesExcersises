@@ -20,23 +20,18 @@ class Game:
     def guess(self):
         user_input = input(f"Guess a number between {START} and {END}")
         if not user_input:
-            print('Please enter a number')
-            raise ValueError
+            raise ValueError('Please enter a number')
         try:
             guess = int(user_input)
         except ValueError:
-            print('Should be a number')
-            raise ValueError
+            raise ValueError('Should be a number')
 
         if guess not in range(START, END + 1):
-            print('Number not in range')
-            raise ValueError
+            raise ValueError('Number not in range')
         elif guess in self._guesses:
-            print('Already guessed')
-            raise ValueError
-        else:
-            self._guesses.append(guess)
-            return guess
+            raise ValueError('Already guessed')
+        self._guesses.append(guess)
+        return guess
 
     def _validate_guess(self, guess):
         if guess == self._answer:
@@ -52,8 +47,8 @@ class Game:
         while len(self._guesses) < MAX_GUESSES:
             try:
                 guess = self.guess()
-            except ValueError:
-                continue
+            except ValueError as error:
+                print(error)
             if self._validate_guess(guess):
                 print(f'It took you {len(self._guesses)} guesses')
                 self._win = True
