@@ -10,10 +10,10 @@ def make_html_links():
         href, name = line.split(',')
         # returns True if internal_link is in href
         if any([link in href for link in INTERNAL_LINKS]):
-            target_tag = 'target="_blank'
-        else:
             target_tag = ''
-        print(f'<a href="{href.strip()}" {target_tag}>{name.strip()}</a>')
+        else:
+            target_tag = ' target="_blank"'
+        print(f'<a href="{href.strip()}"{target_tag}>{name.strip()}</a>')
 
 
 if __name__ == '__main__':
